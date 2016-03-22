@@ -25,66 +25,68 @@ class Main extends PluginBase implements Listener{
         $p = $e->getPlayer();
         $b = $e->getBlock();
         $l = $p->getLevel();
-        $sign = $l->getTile($b);
-        $txt = $sign->getText();
-        if($sign instanceof Sign){
-            $txt = $sign->getText();
-            if($txt[0] == C::RED."[Join]"){
-                if($txt[1] instanceof Level){
-                    $level = $this->getServer()->getLevelByName($txt[1]);
-                    $level->loadChunk($level->getFloorX(), $level->getFloorZ());
-                    $p->teleport(new Position(104.7,83,39.4,$level));
-                    $p->setNameTag(C::RED."".$p->getName()."");
-                    $players = count($this->getServer()->getLevelByName("sa1")->getPlayers());
-                    $sign->setText(C::RED."[Join]",C::YELLOW."$players Players",C::AQUA."SnowArena",C::GREEN."-----");
+        if($l->getTile() == Sign){
+        	$sign = $l->getTile($b);
+        	$txt = $sign->getText();
+        	if($sign instanceof Sign){
+            		$txt = $sign->getText();
+            		if($txt[0] == C::RED."[Join]"){
+                		if($txt[1] instanceof Level){
+                    			$level = $this->getServer()->getLevelByName($txt[1]);
+                    			$level->loadChunk($level->getFloorX(), $level->getFloorZ());
+                    			$p->teleport(new Position(104.7,83,39.4,$level));
+                    			$p->setNameTag(C::RED."".$p->getName()."");
+                    			$players = count($this->getServer()->getLevelByName("sa1")->getPlayers());
+                    			$sign->setText(C::RED."[Join]",C::YELLOW."$players Players",C::AQUA."SnowArena",C::GREEN."-----");
                     
-                    // Items
-                    $p->getInventory()->addItem(Item::get(332,0,64));
-                    $p->getInventory()->addItem(Item::get(332,0,64));
-                    $p->getInventory()->addItem(Item::get(332,0,64));
-                    $p->getInventory()->addItem(Item::get(332,0,64));
-                    $p->getInventory()->addItem(Item::get(332,0,64));
-                    $p->getInventory()->addItem(Item::get(332,0,64));
-                    $p->getInventory()->addItem(Item::get(332,0,64));
-                    $p->getInventory()->addItem(Item::get(332,0,64));
-                    $p->getInventory()->addItem(Item::get(332,0,64));
-                    $p->getInventory()->addItem(Item::get(332,0,64));
-                }
-            }else{
+                    			// Items
+                    			$p->getInventory()->addItem(Item::get(332,0,64));
+                    			$p->getInventory()->addItem(Item::get(332,0,64));
+                    			$p->getInventory()->addItem(Item::get(332,0,64));
+                    			$p->getInventory()->addItem(Item::get(332,0,64));
+                    			$p->getInventory()->addItem(Item::get(332,0,64));
+                    			$p->getInventory()->addItem(Item::get(332,0,64));
+                    			$p->getInventory()->addItem(Item::get(332,0,64));
+                    			$p->getInventory()->addItem(Item::get(332,0,64));
+                			$p->getInventory()->addItem(Item::get(332,0,64));
+                    			$p->getInventory()->addItem(Item::get(332,0,64));
+                		}
+            		}
+        	}
+        }else{
                 if($txt[0] == C::BLUE."[Join]"){
-                    if($txt[1] instanceof Level){
-                        $level = $this->getServer()->getLevelByName($txt[1]);
-                        $level->loadChunk($level->getFloorX(), $level->getFloorZ());
-                        $p->teleport(new Position(26.7,82,15.7,$level));
-                        $p->setNameTag(C::BLUE."".$p->getName()."");
-                        $players = count($this->getServer()->getLevelByName("sa1")->getPlayers());
-                        $sign->setText(C::BLUE."[Join]",C::YELLOW."$players Players",C::AQUA."SnowArena",C::GREEN."-----");
+                    	if($txt[1] instanceof Level){
+                        	$level = $this->getServer()->getLevelByName($txt[1]);
+                        	$level->loadChunk($level->getFloorX(), $level->getFloorZ());
+                        	$p->teleport(new Position(26.7,82,15.7,$level));
+                        	$p->setNameTag(C::BLUE."".$p->getName()."");
+                        	$players = count($this->getServer()->getLevelByName("sa1")->getPlayers());
+                        	$sign->setText(C::BLUE."[Join]",C::YELLOW."$players Players",C::AQUA."SnowArena",C::GREEN."-----");
                         
-                        // Items
-                        $p->getInventory()->addItem(Item::get(332,0,64));
-                        $p->getInventory()->addItem(Item::get(332,0,64));
-                        $p->getInventory()->addItem(Item::get(332,0,64));
-                        $p->getInventory()->addItem(Item::get(332,0,64));
-                        $p->getInventory()->addItem(Item::get(332,0,64));
-                        $p->getInventory()->addItem(Item::get(332,0,64));
-                        $p->getInventory()->addItem(Item::get(332,0,64));
-                        $p->getInventory()->addItem(Item::get(332,0,64));
-                        $p->getInventory()->addItem(Item::get(332,0,64));
-                        $p->getInventory()->addItem(Item::get(332,0,64));
+                        	// Items
+                        	$p->getInventory()->addItem(Item::get(332,0,64));
+                        	$p->getInventory()->addItem(Item::get(332,0,64));
+                        	$p->getInventory()->addItem(Item::get(332,0,64));
+                        	$p->getInventory()->addItem(Item::get(332,0,64));
+                        	$p->getInventory()->addItem(Item::get(332,0,64));
+                        	$p->getInventory()->addItem(Item::get(332,0,64));
+                        	$p->getInventory()->addItem(Item::get(332,0,64));
+                        	$p->getInventory()->addItem(Item::get(332,0,64));
+                        	$p->getInventory()->addItem(Item::get(332,0,64));
+                        	$p->getInventory()->addItem(Item::get(332,0,64));
+                    	  }
                     }
-                }
-            }
-        } // End ALL Ifs  
-    }
+              } // End ALL Ifs  
+       }
 }
 
 // Game Timer
 class GameTime extends PluginTask{
     
     public function __construct($plugin){
-		$this->plugin = $plugin;
-		parent::__construct($plugin);
-	}
+	$this->plugin = $plugin;
+	parent::__construct($plugin);
+    }
     
     public function onRun($tick){
         $players = $this->plugin->getServer()->getLevelByName("sa1")->getPlayers();
